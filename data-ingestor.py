@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import json
 import glob
+import time
 
 
 #setup working directory where data is stored and get JSON input files
@@ -32,13 +33,40 @@ def read_json_input_data(file_list):
         #concatenate all the data frames into one df
         df = pd.concat(dfs)
 
+        print(df.columns.to_list())
+
+        #fill null columns:
+        print('filling null values of price, stream_id, times_viewed columns')
+
+        #price = total_price
+        df['price'].fillna(df['total_price'])
+        #stream_id = StreamID
+        df = df['stream_id'].fillna(df['StreamID'])
+        #times_viewed = TimesViewed
+        df = df['times_viewed'].fillna(df['TimesViewed'])
+
+        #check for nulls and drop columns
+        print(df['price'].isna().sum())
+
+        if (df['price'].isna().sum() == 0):
+            print('price column has no nulls, dropping total_price column')
+            df = df['total_price'].drop()
+
+        if (df['stream_id'].isna().sum() == 0):
+            print('stream_id column has no nulls, dropping StreamID column')
+            df = df['StreamID'].drop()
+        if (df['times_viewed'].isna().sum() == 0):
+            print('times_viewed column has no nulls, dropping TimesViewed column')
+            df = df['TimesViewed'].drop()
+
         #ouput head, tail and shape of concatenated data
-        print(df.head())
-        print(df.tail())
-        print(df.shape)
+        #print(df.head())
+        #print(df.tail())
+        #print(df.shape)
 
         #return as a dataframe
         return df
+
     except Error as e:
         print('error reading json', e)
 
@@ -46,6 +74,6 @@ def read_json_input_data(file_list):
 df = read_json_input_data(file_list)
 
 #export csv data
-df.to_csv('transactions_raw.csv')
+#df.to_csv('transactions.csv')
 
 print('csv data exported')

@@ -33,31 +33,31 @@ def read_json_input_data(file_list):
         #concatenate all the data frames into one df
         df = pd.concat(dfs)
 
-        print(df.columns.to_list())
-
         #fill null columns:
         print('filling null values of price, stream_id, times_viewed columns')
 
         #price = total_price
-        df['price'].fillna(df['total_price'])
+        df['price'] = df['price'].fillna(df['total_price'])
+        time.sleep(3)
         #stream_id = StreamID
-        df = df['stream_id'].fillna(df['StreamID'])
+        df['stream_id'] = df['stream_id'].fillna(df['StreamID'])
+        time.sleep(3)
         #times_viewed = TimesViewed
-        df = df['times_viewed'].fillna(df['TimesViewed'])
+        df['times_viewed'] = df['times_viewed'].fillna(df['TimesViewed'])
+        time.sleep(3)
+
+        print('null values filled, now checking this and dropping duplicate columns')
 
         #check for nulls and drop columns
-        print(df['price'].isna().sum())
-
         if (df['price'].isna().sum() == 0):
             print('price column has no nulls, dropping total_price column')
-            df = df['total_price'].drop()
-
+            df.drop(['total_price'], axis=1, inplace=True)
         if (df['stream_id'].isna().sum() == 0):
             print('stream_id column has no nulls, dropping StreamID column')
-            df = df['StreamID'].drop()
+            df.drop(['StreamID'], axis=1, inplace=True)
         if (df['times_viewed'].isna().sum() == 0):
             print('times_viewed column has no nulls, dropping TimesViewed column')
-            df = df['TimesViewed'].drop()
+            df.drop(['TimesViewed'], axis=1, inplace=True)
 
         #ouput head, tail and shape of concatenated data
         #print(df.head())
@@ -67,13 +67,13 @@ def read_json_input_data(file_list):
         #return as a dataframe
         return df
 
-    except Error as e:
+    except Exception as e:
         print('error reading json', e)
 
 #call read function, passing in the list of JSON input files
 df = read_json_input_data(file_list)
 
 #export csv data
-#df.to_csv('transactions.csv')
+df.to_csv('transactions.csv')
 
 print('csv data exported')

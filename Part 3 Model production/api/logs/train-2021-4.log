@@ -1,4 +1,0 @@
-unique_id,timestamp,x_shape,model_version,model_version_note,runtime
-536ad5cb-6554-4e67-8a66-5e7fa92df3c2,1617541777.979413,"(1000,)",0.1,test model,00:00:01
-de8d0147-7115-4249-8642-3d929f737c85,1617541777.979738,"(2000,)",0.1,test model,00:00:02
-ffd6c078-df7c-4f51-977a-fbca0774d6ea,1617541877.39431,"(4024,)",0.1,FBProphet model for time-series,000:01:39

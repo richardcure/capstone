@@ -3,7 +3,7 @@
 module with functions to enable logging
 """
 
-import time,os,re,csv,sys,uuid,joblib
+import time,os,re,csv,sys,uuid
 from datetime import date
 
 if not os.path.exists(os.path.join(".","logs")):

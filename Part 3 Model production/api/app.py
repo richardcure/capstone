@@ -3,12 +3,9 @@ from flask import Flask, jsonify, request
 from flask import render_template, send_from_directory
 import os
 import re
-import joblib
-import socket
 import json
 import numpy as np
 import pandas as pd
-
 
 ## import model specific functions and variables
 from model import model_train, model_load, model_predict

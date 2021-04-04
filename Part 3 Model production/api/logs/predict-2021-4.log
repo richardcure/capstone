@@ -1,0 +1,4 @@
+unique_id,timestamp,country,y_pred,target_date,runtime,model_version
+a47e13b0-d9e8-4874-b084-eb45e0e1edac,1617541777.98291,United Kingdom,30000,"('2019',)-('08',)-01",0.1,00:00:03
+a3bc5390-24ad-44a2-b495-f01f66841fb4,1617541777.984024,United Kingdom,40000,"('2019',)-('08',)-01",0.1,00:00:04
+b4b1828d-b65e-415f-9d0f-3c421306afc3,1617541879.342713,France,44.30806142834411,2019-08-01,0.1,000:00:01

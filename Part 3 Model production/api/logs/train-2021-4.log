@@ -1,0 +1,7 @@
+unique_id,timestamp,x_shape,model_version,model_version_note,runtime
+c75f50c8-c1e0-49b9-a12e-f9faf1735258,1617474858.43404,"(4024,)",0.1,FBProphet model for time-series,000:01:31
+bab6b80f-c289-4c0a-8ae8-f7f10e971e99,1617475057.394235,"(4024,)",0.1,FBProphet model for time-series,000:01:35
+3879a3e4-6f26-4ce2-9a02-6d577b325f31,1617475217.89056,"(4024,)",0.1,FBProphet model for time-series,000:01:36
+31de40b6-9c23-40ce-b4d7-59da31879c8a,1617537410.236775,"(1000,)",0.1,test model,00:00:01
+a1ccbfed-ff0d-4999-947a-18ec5b8714c3,1617537410.2383082,"(2000,)",0.1,test model,00:00:02
+6710e606-7a2d-498a-b91d-a53ba28ca942,1617537506.3309739,"(4024,)",0.1,FBProphet model for time-series,000:01:36
